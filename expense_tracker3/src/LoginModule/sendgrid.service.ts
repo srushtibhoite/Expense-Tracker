@@ -7,7 +7,8 @@ import * as SendGrid from '@sendgrid/mail';
 export class SendGridService {
   constructor(private readonly configService: ConfigService) {
     // Set the SendGrid API key from an environment variable
-    
+    // SendGrid.setApiKey(this.configService.get<string>('Bearer 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'));
+    SendGrid.setApiKey(process.env.SENDGRID_API_KEY)
 }
 
   async send(mail: SendGrid.MailDataRequired) {
